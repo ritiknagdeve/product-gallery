@@ -24,6 +24,12 @@
   touch-action: manipulation;
 }
 
+.pagination-btn:not(:first-child):not(:last-child) {
+  min-width: 40px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
 .pagination-btn:hover:not(:disabled):not(.pagination-btn--active) {
   background: #f0f0f0;
   border-color: #bbb;
