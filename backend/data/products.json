@@ -1,0 +1,282 @@
+[
+  {
+    "id": 1,
+    "title": "Wireless Bluetooth Headphones",
+    "price": 59.99,
+    "category": "electronics",
+    "image": "https://images.pexels.com/photos/15840650/pexels-photo-15840650.jpeg?auto=compress&cs=tinysrgb&h=350"
+  },
+  {
+    "id": 2,
+    "title": "Running Shoes",
+    "price": 89.99,
+    "category": "footwear",
+    "image": "https://images.pexels.com/photos/29342144/pexels-photo-29342144.jpeg?auto=compress&cs=tinysrgb&h=350"
+  },
+  {
+    "id": 3,
+    "title": "Leather Wallet",
+    "price": 29.99,
+    "category": "accessories",
+    "image": "https://images.pexels.com/photos/4452503/pexels-photo-4452503.jpeg?auto=compress&cs=tinysrgb&h=350"
+  },
+  {
+    "id": 4,
+    "title": "Smart Watch",
+    "price": 199.99,
+    "category": "electronics",
+    "image": "https://images.pexels.com/photos/31541678/pexels-photo-31541678.jpeg?auto=compress&cs=tinysrgb&h=350"
+  },
+  {
+    "id": 5,
+    "title": "Cotton T-Shirt",
+    "price": 19.99,
+    "category": "clothing",
+    "image": "https://images.pexels.com/photos/18533669/pexels-photo-18533669.jpeg?auto=compress&cs=tinysrgb&h=350"
+  },
+  {
+    "id": 6,
+    "title": "Backpack",
+    "price": 49.99,
+    "category": "accessories",
+    "image": "https://images.pexels.com/photos/20094394/pexels-photo-20094394.jpeg?auto=compress&cs=tinysrgb&h=350"
+  },
+  {
+    "id": 7,
+    "title": "Sunglasses",
+    "price": 34.99,
+    "category": "accessories",
+    "image": "https://images.pexels.com/photos/32677219/pexels-photo-32677219.jpeg?auto=compress&cs=tinysrgb&h=350"
+  },
+  {
+    "id": 8,
+    "title": "Denim Jeans",
+    "price": 59.99,
+    "category": "clothing",
+    "image": "https://images.pexels.com/photos/18533669/pexels-photo-18533669.jpeg?auto=compress&cs=tinysrgb&h=350"
+  },
+  {
+    "id": 9,
+    "title": "Portable Speaker",
+    "price": 39.99,
+    "category": "electronics",
+    "image": "https://images.pexels.com/photos/29581125/pexels-photo-29581125.jpeg?auto=compress&cs=tinysrgb&h=350"
+  },
+  {
+    "id": 10,
+    "title": "Yoga Mat",
+    "price": 24.99,
+    "category": "fitness",
+    "image": "https://images.pexels.com/photos/8436400/pexels-photo-8436400.jpeg?auto=compress&cs=tinysrgb&h=350"
+  },
+  {
+    "id": 11,
+    "title": "Stainless Steel Water Bottle",
+    "price": 14.99,
+    "category": "fitness",
+    "image": "https://images.pexels.com/photos/5113049/pexels-photo-5113049.jpeg?auto=compress&cs=tinysrgb&h=350"
+  },
+  {
+    "id": 12,
+    "title": "Laptop Stand",
+    "price": 44.99,
+    "category": "electronics",
+    "image": "https://images.pexels.com/photos/29765806/pexels-photo-29765806.jpeg?auto=compress&cs=tinysrgb&h=350"
+  },
+  {
+    "id": 13,
+    "title": "Canvas Sneakers",
+    "price": 39.99,
+    "category": "footwear",
+    "image": "https://images.pexels.com/photos/27204251/pexels-photo-27204251.jpeg?auto=compress&cs=tinysrgb&h=350"
+  },
+  {
+    "id": 14,
+    "title": "Hoodie",
+    "price": 44.99,
+    "category": "clothing",
+    "image": "https://images.pexels.com/photos/19461584/pexels-photo-19461584.jpeg?auto=compress&cs=tinysrgb&h=350"
+  },
+  {
+    "id": 15,
+    "title": "Wireless Mouse",
+    "price": 24.99,
+    "category": "electronics",
+    "image": "https://images.pexels.com/photos/32890143/pexels-photo-32890143.jpeg?auto=compress&cs=tinysrgb&h=350"
+  },
+  {
+    "id": 16,
+    "title": "Resistance Bands Set",
+    "price": 19.99,
+    "category": "fitness",
+    "image": "https://images.pexels.com/photos/8436147/pexels-photo-8436147.jpeg?auto=compress&cs=tinysrgb&h=350"
+  },
+  {
+    "id": 17,
+    "title": "Formal Shoes",
+    "price": 79.99,
+    "category": "footwear",
+    "image": "https://images.pexels.com/photos/27127374/pexels-photo-27127374.jpeg?auto=compress&cs=tinysrgb&h=350"
+  },
+  {
+    "id": 18,
+    "title": "Baseball Cap",
+    "price": 15.99,
+    "category": "accessories",
+    "image": "https://images.pexels.com/photos/33974813/pexels-photo-33974813.jpeg?auto=compress&cs=tinysrgb&h=350"
+  },
+  {
+    "id": 19,
+    "title": "Dumbbells Pair",
+    "price": 34.99,
+    "category": "fitness",
+    "image": "https://images.pexels.com/photos/11433027/pexels-photo-11433027.jpeg?auto=compress&cs=tinysrgb&h=350"
+  },
+  {
+    "id": 20,
+    "title": "Phone Case",
+    "price": 12.99,
+    "category": "accessories",
+    "image": "https://images.pexels.com/photos/20321375/pexels-photo-20321375.jpeg?auto=compress&cs=tinysrgb&h=350"
+  },
+  {
+    "id": 21,
+    "title": "Mechanical Keyboard",
+    "price": 119.99,
+    "category": "electronics",
+    "image": "https://images.pexels.com/photos/6623763/pexels-photo-6623763.jpeg?auto=compress&cs=tinysrgb&h=350"
+  },
+  {
+    "id": 22,
+    "title": "Over-Ear Studio Headphones",
+    "price": 149.99,
+    "category": "electronics",
+    "image": "https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg?auto=compress&cs=tinysrgb&h=350"
+  },
+  {
+    "id": 23,
+    "title": "Leather Sneakers",
+    "price": 94.99,
+    "category": "footwear",
+    "image": "https://images.pexels.com/photos/27516985/pexels-photo-27516985.jpeg?auto=compress&cs=tinysrgb&h=350"
+  },
+  {
+    "id": 24,
+    "title": "Slim Leather Belt",
+    "price": 22.99,
+    "category": "accessories",
+    "image": "https://images.pexels.com/photos/27565821/pexels-photo-27565821.png?auto=compress&cs=tinysrgb&h=350"
+  },
+  {
+    "id": 25,
+    "title": "Polo Shirt",
+    "price": 29.99,
+    "category": "clothing",
+    "image": "https://images.pexels.com/photos/4295983/pexels-photo-4295983.jpeg?auto=compress&cs=tinysrgb&h=350"
+  },
+  {
+    "id": 26,
+    "title": "Gym Duffel Bag",
+    "price": 54.99,
+    "category": "fitness",
+    "image": "https://images.pexels.com/photos/6815665/pexels-photo-6815665.jpeg?auto=compress&cs=tinysrgb&h=350"
+  },
+  {
+    "id": 27,
+    "title": "USB-C Charging Hub",
+    "price": 39.99,
+    "category": "electronics",
+    "image": "https://images.pexels.com/photos/18641665/pexels-photo-18641665.png?auto=compress&cs=tinysrgb&h=350"
+  },
+  {
+    "id": 28,
+    "title": "Sports Leggings",
+    "price": 34.99,
+    "category": "clothing",
+    "image": "https://images.pexels.com/photos/35990/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350"
+  },
+  {
+    "id": 29,
+    "title": "Ankle Boots",
+    "price": 109.99,
+    "category": "footwear",
+    "image": "https://images.pexels.com/photos/27174561/pexels-photo-27174561.jpeg?auto=compress&cs=tinysrgb&h=350"
+  },
+  {
+    "id": 30,
+    "title": "Jump Rope",
+    "price": 12.99,
+    "category": "fitness",
+    "image": "https://images.pexels.com/photos/35412975/pexels-photo-35412975.jpeg?auto=compress&cs=tinysrgb&h=350"
+  },
+  {
+    "id": 31,
+    "title": "Wristwatch Chronograph",
+    "price": 249.99,
+    "category": "accessories",
+    "image": "https://images.pexels.com/photos/28977357/pexels-photo-28977357.jpeg?auto=compress&cs=tinysrgb&h=350"
+  },
+  {
+    "id": 32,
+    "title": "Noise Isolating Earbuds",
+    "price": 49.99,
+    "category": "electronics",
+    "image": "https://images.pexels.com/photos/4526407/pexels-photo-4526407.jpeg?auto=compress&cs=tinysrgb&h=350"
+  },
+  {
+    "id": 33,
+    "title": "Zip-Up Track Jacket",
+    "price": 54.99,
+    "category": "clothing",
+    "image": "https://images.pexels.com/photos/1649675/pexels-photo-1649675.jpeg?auto=compress&cs=tinysrgb&h=350"
+  },
+  {
+    "id": 34,
+    "title": "Hiking Boots",
+    "price": 129.99,
+    "category": "footwear",
+    "image": "https://images.pexels.com/photos/20326846/pexels-photo-20326846.jpeg?auto=compress&cs=tinysrgb&h=350"
+  },
+  {
+    "id": 35,
+    "title": "Foam Roller",
+    "price": 27.99,
+    "category": "fitness",
+    "image": "https://images.pexels.com/photos/7347491/pexels-photo-7347491.jpeg?auto=compress&cs=tinysrgb&h=350"
+  },
+  {
+    "id": 36,
+    "title": "Crossbody Bag",
+    "price": 39.99,
+    "category": "accessories",
+    "image": "https://images.pexels.com/photos/27204286/pexels-photo-27204286.jpeg?auto=compress&cs=tinysrgb&h=350"
+  },
+  {
+    "id": 37,
+    "title": "Graphic Print Tee",
+    "price": 24.99,
+    "category": "clothing",
+    "image": "https://images.pexels.com/photos/7157039/pexels-photo-7157039.jpeg?auto=compress&cs=tinysrgb&h=350"
+  },
+  {
+    "id": 38,
+    "title": "Wireless Charging Pad",
+    "price": 29.99,
+    "category": "electronics",
+    "image": "https://images.pexels.com/photos/947407/pexels-photo-947407.jpeg?auto=compress&cs=tinysrgb&h=350"
+  },
+  {
+    "id": 39,
+    "title": "Slip-On Loafers",
+    "price": 64.99,
+    "category": "footwear",
+    "image": "https://images.pexels.com/photos/27035621/pexels-photo-27035621.jpeg?auto=compress&cs=tinysrgb&h=350"
+  },
+  {
+    "id": 40,
+    "title": "Kettlebell 16kg",
+    "price": 44.99,
+    "category": "fitness",
+    "image": "https://images.pexels.com/photos/9302172/pexels-photo-9302172.jpeg?auto=compress&cs=tinysrgb&h=350"
+  }
+]

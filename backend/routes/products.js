@@ -1,0 +1,134 @@
+const express = require("express");
+const { readProducts } = require("../utils/db");
+const cache = require("../utils/cache");
+
+const router = express.Router();
+
+/**
+ * Helper: get products from cache or read from file
+ */
+function getCachedProducts() {
+  const cached = cache.get("products");
+  if (cached) return cached;
+
+  const products = readProducts();
+  cache.set("products", products);
+  return products;
+}
+
+/**
+ * GET /api/products
+ *
+ * Query params:
+ *   - search   : search by title (case-insensitive)
+ *   - category  : filter by exact category name
+ *   - page      : page number (default 1)
+ *   - limit     : items per page (default 10, max 50)
+ *   - sort      : sort field — "price" | "title" (default: "id")
+ *   - order     : "asc" | "desc" (default: "asc")
+ */
+router.get("/", (req, res) => {
+  try {
+    let products = getCachedProducts();
+
+    // --- Search by title ---
+    const { search, category, page, limit, sort, order } = req.query;
+
+    if (search) {
+      const term = search.toLowerCase().trim();
+      products = products.filter((p) =>
+        p.title.toLowerCase().includes(term)
+      );
+    }
+
+    // --- Filter by category ---
+    if (category) {
+      const cat = category.toLowerCase().trim();
+      products = products.filter(
+        (p) => p.category.toLowerCase() === cat
+      );
+    }
+
+    // --- Sorting ---
+    const sortField = ["price", "title"].includes(sort) ? sort : "id";
+    const sortOrder = order === "desc" ? -1 : 1;
+
+    products.sort((a, b) => {
+      if (typeof a[sortField] === "string") {
+        return sortOrder * a[sortField].localeCompare(b[sortField]);
+      }
+      return sortOrder * (a[sortField] - b[sortField]);
+    });
+
+    // --- Pagination ---
+    const totalItems = products.length;
+    const pageNum = Math.max(parseInt(page, 10) || 1, 1);
+    const perPage = Math.min(Math.max(parseInt(limit, 10) || 10, 1), 50);
+    const totalPages = Math.ceil(totalItems / perPage);
+    const startIndex = (pageNum - 1) * perPage;
+
+    const paginatedProducts = products.slice(startIndex, startIndex + perPage);
+
+    // --- Get all unique categories (useful for the frontend filter) ---
+    const allProducts = getCachedProducts();
+    const categories = [...new Set(allProducts.map((p) => p.category))];
+
+    res.json({
+      success: true,
+      data: paginatedProducts,
+      pagination: {
+        currentPage: pageNum,
+        totalPages,
+        totalItems,
+        perPage,
+      },
+      categories,
+    });
+  } catch (error) {
+    console.error("Error fetching products:", error.message);
+    res.status(500).json({ success: false, message: "Internal server error" });
+  }
+});
+
+/**
+ * GET /api/products/suggestions
+ * Returns all product titles for autocomplete
+ */
+router.get("/suggestions", (req, res) => {
+  try {
+    const products = getCachedProducts();
+    const titles = products.map((p) => p.title);
+    res.json({ success: true, data: titles });
+  } catch (error) {
+    console.error("Error fetching suggestions:", error.message);
+    res.status(500).json({ success: false, message: "Internal server error" });
+  }
+});
+
+/**
+ * GET /api/products/:id
+ * Fetch a single product by ID
+ */
+router.get("/:id", (req, res) => {
+  try {
+    const id = parseInt(req.params.id, 10);
+
+    if (isNaN(id)) {
+      return res.status(400).json({ success: false, message: "Invalid product ID" });
+    }
+
+    const products = getCachedProducts();
+    const product = products.find((p) => p.id === id);
+
+    if (!product) {
+      return res.status(404).json({ success: false, message: "Product not found" });
+    }
+
+    res.json({ success: true, data: product });
+  } catch (error) {
+    console.error("Error fetching product:", error.message);
+    res.status(500).json({ success: false, message: "Internal server error" });
+  }
+});
+
+module.exports = router;
