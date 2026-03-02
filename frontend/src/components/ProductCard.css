@@ -55,6 +55,7 @@
 .product-card-price {
   font-size: 1.05rem;
   font-weight: 700;
+  line-height: 1.4;
   color: #111;
   margin: 0;
 }

@@ -4,7 +4,7 @@ import { fetchSuggestions } from "../api/products";
 import "./SearchBar.css";
 
 export default function SearchBar() {
-  const { setSearch } = useProducts();
+  const { search, setSearch } = useProducts();
   const [input, setInput] = useState("");
   const [titles, setTitles] = useState([]);
   const [filtered, setFiltered] = useState([]);
@@ -26,6 +26,11 @@ export default function SearchBar() {
     }, 400);
     return () => clearTimeout(debounceRef.current);
   }, [input, setSearch]);
+
+  useEffect(() => {
+    setInput(search);
+    if (!search) setOpen(false);
+  }, [search]);
 
   // Filter suggestions — show all on empty input, filtered when typing
   useEffect(() => {

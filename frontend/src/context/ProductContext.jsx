@@ -14,7 +14,7 @@ function makeCacheKey(search, category, page) {
 const initialState = {
   products: [],
   categories: [],
-  loading: false,
+  loading: true,
   error: null,
   search: "",
   category: "",
