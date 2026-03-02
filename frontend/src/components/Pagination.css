@@ -12,11 +12,16 @@
   border: 1px solid #ddd;
   border-radius: 8px;
   background: #fff;
+  color: #111;
   font-size: 0.85rem;
   font-family: inherit;
   font-weight: 500;
   cursor: pointer;
   transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  appearance: none;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 .pagination-btn:hover:not(:disabled):not(.pagination-btn--active) {
@@ -24,8 +29,10 @@
   border-color: #bbb;
 }
 
-.pagination-btn:active:not(:disabled) {
-  transform: scale(0.96);
+@media (hover: hover) and (pointer: fine) {
+  .pagination-btn:active:not(:disabled) {
+    transform: scale(0.96);
+  }
 }
 
 .pagination-btn:disabled {
