@@ -11,7 +11,7 @@
     "title": "Running Shoes",
     "price": 89.99,
     "category": "footwear",
-    "image": "https://images.pexels.com/photos/29342144/pexels-photo-29342144.jpeg?auto=compress&cs=tinysrgb&h=350"
+    "image": "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&h=350"
   },
   {
     "id": 3,
@@ -32,7 +32,7 @@
     "title": "Cotton T-Shirt",
     "price": 19.99,
     "category": "clothing",
-    "image": "https://images.pexels.com/photos/18533669/pexels-photo-18533669.jpeg?auto=compress&cs=tinysrgb&h=350"
+    "image": "https://images.pexels.com/photos/8532616/pexels-photo-8532616.jpeg?auto=compress&cs=tinysrgb&h=350"
   },
   {
     "id": 6,
@@ -53,35 +53,35 @@
     "title": "Denim Jeans",
     "price": 59.99,
     "category": "clothing",
-    "image": "https://images.pexels.com/photos/18533669/pexels-photo-18533669.jpeg?auto=compress&cs=tinysrgb&h=350"
+    "image": "https://images.pexels.com/photos/1598507/pexels-photo-1598507.jpeg?auto=compress&cs=tinysrgb&h=350"
   },
   {
     "id": 9,
     "title": "Portable Speaker",
     "price": 39.99,
     "category": "electronics",
-    "image": "https://images.pexels.com/photos/29581125/pexels-photo-29581125.jpeg?auto=compress&cs=tinysrgb&h=350"
+    "image": "https://images.pexels.com/photos/1279107/pexels-photo-1279107.jpeg?auto=compress&cs=tinysrgb&h=350"
   },
   {
     "id": 10,
     "title": "Yoga Mat",
     "price": 24.99,
     "category": "fitness",
-    "image": "https://images.pexels.com/photos/8436400/pexels-photo-8436400.jpeg?auto=compress&cs=tinysrgb&h=350"
+    "image": "https://images.pexels.com/photos/4498574/pexels-photo-4498574.jpeg?auto=compress&cs=tinysrgb&h=350"
   },
   {
     "id": 11,
     "title": "Stainless Steel Water Bottle",
     "price": 14.99,
     "category": "fitness",
-    "image": "https://images.pexels.com/photos/5113049/pexels-photo-5113049.jpeg?auto=compress&cs=tinysrgb&h=350"
+    "image": "https://images.pexels.com/photos/1342529/pexels-photo-1342529.jpeg?auto=compress&cs=tinysrgb&h=350"
   },
   {
     "id": 12,
     "title": "Laptop Stand",
     "price": 44.99,
     "category": "electronics",
-    "image": "https://images.pexels.com/photos/29765806/pexels-photo-29765806.jpeg?auto=compress&cs=tinysrgb&h=350"
+    "image": "https://images.pexels.com/photos/6045231/pexels-photo-6045231.jpeg?auto=compress&cs=tinysrgb&h=350"
   },
   {
     "id": 13,
@@ -102,7 +102,7 @@
     "title": "Wireless Mouse",
     "price": 24.99,
     "category": "electronics",
-    "image": "https://images.pexels.com/photos/32890143/pexels-photo-32890143.jpeg?auto=compress&cs=tinysrgb&h=350"
+    "image": "https://images.pexels.com/photos/7091923/pexels-photo-7091923.jpeg?auto=compress&cs=tinysrgb&h=350"
   },
   {
     "id": 16,
@@ -242,7 +242,7 @@
     "title": "Foam Roller",
     "price": 27.99,
     "category": "fitness",
-    "image": "https://images.pexels.com/photos/7347491/pexels-photo-7347491.jpeg?auto=compress&cs=tinysrgb&h=350"
+    "image": "https://images.pexels.com/photos/4587694/pexels-photo-4587694.jpeg?auto=compress&cs=tinysrgb&h=350"
   },
   {
     "id": 36,
@@ -263,7 +263,7 @@
     "title": "Wireless Charging Pad",
     "price": 29.99,
     "category": "electronics",
-    "image": "https://images.pexels.com/photos/947407/pexels-photo-947407.jpeg?auto=compress&cs=tinysrgb&h=350"
+    "image": "https://images.pexels.com/photos/5083491/pexels-photo-5083491.jpeg?auto=compress&cs=tinysrgb&h=350"
   },
   {
     "id": 39,
