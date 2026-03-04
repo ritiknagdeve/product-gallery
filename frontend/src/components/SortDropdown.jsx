@@ -44,7 +44,7 @@ export default function SortDropdown() {
         <svg className="sort-dropdown-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M11 5h10M11 9h7M11 13h4M3 17l3 3 3-3M6 18V4" />
         </svg>
-        {selectedLabel}
+        <span className="sort-dropdown-label">{selectedLabel}</span>
         <svg className="sort-dropdown-chevron" width="12" height="8" viewBox="0 0 12 8" fill="none">
           <path d="M1 1l5 5 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>

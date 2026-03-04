@@ -20,6 +20,7 @@
   outline: none;
   transition: border-color 0.2s, box-shadow 0.2s;
   white-space: nowrap;
+  overflow: hidden;
 }
 
 .sort-dropdown-trigger:hover {
@@ -35,6 +36,14 @@
 .sort-dropdown-icon {
   color: #666;
   flex-shrink: 0;
+}
+
+.sort-dropdown-label {
+  min-width: 0;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .sort-dropdown-chevron {
