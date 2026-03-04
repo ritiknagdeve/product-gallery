@@ -1,27 +1,25 @@
 // In-memory cache with TTL to avoid reading JSON on every request
-class SimpleCache {
-  constructor(ttlSeconds = 60) {
-    this.ttl = ttlSeconds * 1000;
-    this.cache = new Map();
+const TTL_MS = 60 * 1000;
+const cache = new Map();
+
+function get(key) {
+  const entry = cache.get(key);
+  if (!entry) return null;
+
+  if (Date.now() - entry.timestamp > TTL_MS) {
+    cache.delete(key);
+    return null;
   }
 
-  get(key) {
-    const entry = this.cache.get(key);
-    if (!entry) return null;
-    if (Date.now() - entry.timestamp > this.ttl) {
-      this.cache.delete(key);
-      return null;
-    }
-    return entry.data;
-  }
-
-  set(key, data) {
-    this.cache.set(key, { data, timestamp: Date.now() });
-  }
-
-  clear() {
-    this.cache.clear();
-  }
+  return entry.data;
 }
 
-module.exports = new SimpleCache(60);
+function set(key, data) {
+  cache.set(key, { data, timestamp: Date.now() });
+}
+
+function clear() {
+  cache.clear();
+}
+
+module.exports = { get, set, clear };
