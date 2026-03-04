@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import { useProducts } from "../context/ProductContext";
 import { fetchSuggestions } from "../api/products";
 import "./SearchBar.css";
@@ -7,22 +7,26 @@ export default function SearchBar() {
   const { search, setSearch } = useProducts();
   const [input, setInput] = useState("");
   const [titles, setTitles] = useState([]);
-  const [filtered, setFiltered] = useState([]);
   const [open, setOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(-1);
-  const debounceRef = useRef(null);
   const wrapperRef = useRef(null);
+
+  const filtered = useMemo(() => {
+    if (!input.trim()) return titles.slice(0, 8);
+
+    const term = input.toLowerCase();
+    return titles.filter((t) => t.toLowerCase().includes(term)).slice(0, 8);
+  }, [input, titles]);
 
   useEffect(() => {
     fetchSuggestions().then(setTitles);
   }, []);
 
   useEffect(() => {
-    clearTimeout(debounceRef.current);
-    debounceRef.current = setTimeout(() => {
+    const timerId = setTimeout(() => {
       setSearch(input.trim());
     }, 400);
-    return () => clearTimeout(debounceRef.current);
+    return () => clearTimeout(timerId);
   }, [input, setSearch]);
 
   useEffect(() => {
@@ -31,14 +35,6 @@ export default function SearchBar() {
   }, [search]);
 
   useEffect(() => {
-    if (!input.trim()) {
-      setFiltered(titles.slice(0, 8));
-    } else {
-      const term = input.toLowerCase();
-      setFiltered(
-        titles.filter((t) => t.toLowerCase().includes(term)).slice(0, 8)
-      );
-    }
     setActiveIndex(-1);
   }, [input, titles]);
 
