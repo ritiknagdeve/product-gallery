@@ -3,7 +3,7 @@ import SkeletonCard from "./SkeletonCard";
 import { useProducts } from "../context/ProductContext";
 import "./ProductGrid.css";
 
-const SKELETON_COUNT = 8; // matches our per-page limit
+const SKELETON_COUNT = 8;
 
 export default function ProductGrid() {
   const { products, loading, error } = useProducts();

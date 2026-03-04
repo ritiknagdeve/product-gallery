@@ -1,17 +1,31 @@
 import SearchBar from "./components/SearchBar";
 import CategoryFilter from "./components/CategoryFilter";
+import SortDropdown from "./components/SortDropdown";
 import ProductGrid from "./components/ProductGrid";
 import Pagination from "./components/Pagination";
 import { useProducts } from "./context/ProductContext";
 import "./App.css";
 
-// No manual fetch needed — ProductContext auto-fetches on state changes
+function ResultCount() {
+  const { totalItems, loading, search, category } = useProducts();
+  if (loading) return null;
+  const hasFilter = search || category;
+  return (
+    <p className="result-count">
+      {hasFilter
+        ? `${totalItems} result${totalItems !== 1 ? "s" : ""} found`
+        : `${totalItems} products`}
+    </p>
+  );
+}
+
 function App() {
-  const { setSearch, setCategory, setPage } = useProducts();
+  const { setSearch, setCategory, setSort, setPage } = useProducts();
 
   const resetToHome = () => {
     setSearch("");
     setCategory("");
+    setSort("");
     setPage(1);
   };
 
@@ -30,8 +44,13 @@ function App() {
 
       <div className="toolbar">
         <SearchBar />
-        <CategoryFilter />
+        <div className="toolbar-filters">
+          <CategoryFilter />
+          <SortDropdown />
+        </div>
       </div>
+
+      <ResultCount />
 
       <ProductGrid />
       <Pagination />

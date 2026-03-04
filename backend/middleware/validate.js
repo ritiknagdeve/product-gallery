@@ -1,9 +1,6 @@
 const { z } = require("zod");
 
-/**
- * Zod schema to validate GET /api/products query params.
- * All fields are optional — they are query strings so they come in as strings.
- */
+// Query param schema — all optional since they're query strings
 const productQuerySchema = z.object({
   search: z
     .string()
@@ -29,9 +26,7 @@ const productQuerySchema = z.object({
     .optional(),
 });
 
-/**
- * Middleware: validate query params using the schema above
- */
+// Validates query params before hitting the route handler
 function validateProductQuery(req, res, next) {
   const result = productQuerySchema.safeParse(req.query);
 

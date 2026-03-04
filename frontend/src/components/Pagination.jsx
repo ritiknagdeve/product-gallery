@@ -6,18 +6,15 @@ export default function Pagination() {
 
   if (totalPages <= 1) return null;
 
-  // Just update page state — context's useEffect auto-fetches
   const handlePageChange = (newPage) => {
     setPage(newPage);
   };
 
-  // Build page numbers: show at most 5 around current
   const getPageNumbers = () => {
     const pages = [];
     let start = Math.max(1, page - 2);
     let end = Math.min(totalPages, page + 2);
 
-    // Adjust to always show 5 if possible
     if (end - start < 4) {
       if (start === 1) end = Math.min(totalPages, start + 4);
       else start = Math.max(1, end - 4);

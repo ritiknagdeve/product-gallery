@@ -1,16 +1,12 @@
 import { createContext, useContext, useReducer, useCallback, useEffect, useRef } from "react";
 import { fetchProducts } from "../api/products";
 
-// ─── Request Cache ──────────────────────────────────────────────────
-// Caches API responses keyed by "search|category|page".
-// When backspacing, the previous term is already cached — no API call needed.
 const MAX_CACHE_SIZE = 50;
 
-function makeCacheKey(search, category, page) {
-  return `${search}|${category}|${page}`;
+function makeCacheKey(search, category, page, sort) {
+  return `${search}|${category}|${page}|${sort}`;
 }
 
-// ─── Initial State ──────────────────────────────────────────────────
 const initialState = {
   products: [],
   categories: [],
@@ -18,22 +14,22 @@ const initialState = {
   error: null,
   search: "",
   category: "",
+  sort: "",
   page: 1,
   totalPages: 1,
   totalItems: 0,
 };
 
-// ─── Actions ────────────────────────────────────────────────────────
 const ACTIONS = {
   FETCH_START: "FETCH_START",
   FETCH_SUCCESS: "FETCH_SUCCESS",
   FETCH_ERROR: "FETCH_ERROR",
   SET_SEARCH: "SET_SEARCH",
   SET_CATEGORY: "SET_CATEGORY",
+  SET_SORT: "SET_SORT",
   SET_PAGE: "SET_PAGE",
 };
 
-// ─── Reducer ────────────────────────────────────────────────────────
 function productReducer(state, action) {
   switch (action.type) {
     case ACTIONS.FETCH_START:
@@ -54,6 +50,8 @@ function productReducer(state, action) {
       return { ...state, search: action.payload, page: 1 };
     case ACTIONS.SET_CATEGORY:
       return { ...state, category: action.payload, page: 1 };
+    case ACTIONS.SET_SORT:
+      return { ...state, sort: action.payload, page: 1 };
     case ACTIONS.SET_PAGE:
       return { ...state, page: action.payload };
     default:
@@ -61,35 +59,33 @@ function productReducer(state, action) {
   }
 }
 
-// ─── Context ────────────────────────────────────────────────────────
 const ProductContext = createContext(null);
 
 export function ProductProvider({ children }) {
   const [state, dispatch] = useReducer(productReducer, initialState);
   const cacheRef = useRef(new Map());
 
-  // Stable fetch function with cache check
-  const loadProducts = useCallback(async (search, category, page) => {
-    const key = makeCacheKey(search, category, page);
+  const loadProducts = useCallback(async (search, category, page, sort) => {
+    const key = makeCacheKey(search, category, page, sort);
     const cached = cacheRef.current.get(key);
 
-    // Cache hit — skip API call, update state instantly
     if (cached) {
       dispatch({ type: ACTIONS.FETCH_SUCCESS, payload: cached });
       return;
     }
 
-    // Cache miss — fetch from API
     dispatch({ type: ACTIONS.FETCH_START });
     try {
+      const [sortField, sortOrder] = sort ? sort.split("_") : ["", ""];
       const result = await fetchProducts({
         search,
         category,
         page,
         limit: 8,
+        sort: sortField || undefined,
+        order: sortOrder || undefined,
       });
 
-      // Store in cache (evict oldest if full)
       if (cacheRef.current.size >= MAX_CACHE_SIZE) {
         const firstKey = cacheRef.current.keys().next().value;
         cacheRef.current.delete(firstKey);
@@ -102,12 +98,10 @@ export function ProductProvider({ children }) {
     }
   }, []);
 
-  // Single effect — auto-fetches whenever search, category, or page changes
   useEffect(() => {
-    loadProducts(state.search, state.category, state.page);
-  }, [state.search, state.category, state.page, loadProducts]);
+    loadProducts(state.search, state.category, state.page, state.sort);
+  }, [state.search, state.category, state.page, state.sort, loadProducts]);
 
-  // Stable setters — dispatch is stable so these never change
   const setSearch = useCallback(
     (term) => dispatch({ type: ACTIONS.SET_SEARCH, payload: term }),
     []
@@ -118,6 +112,11 @@ export function ProductProvider({ children }) {
     []
   );
 
+  const setSort = useCallback(
+    (s) => dispatch({ type: ACTIONS.SET_SORT, payload: s }),
+    []
+  );
+
   const setPage = useCallback(
     (p) => dispatch({ type: ACTIONS.SET_PAGE, payload: p }),
     []
@@ -125,14 +124,13 @@ export function ProductProvider({ children }) {
 
   return (
     <ProductContext.Provider
-      value={{ ...state, setSearch, setCategory, setPage }}
+      value={{ ...state, setSearch, setCategory, setSort, setPage }}
     >
       {children}
     </ProductContext.Provider>
   );
 }
 
-// ─── Hook ───────────────────────────────────────────────────────────
 export function useProducts() {
   const ctx = useContext(ProductContext);
   if (!ctx) throw new Error("useProducts must be used within ProductProvider");

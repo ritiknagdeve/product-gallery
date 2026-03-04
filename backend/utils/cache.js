@@ -1,10 +1,7 @@
-/**
- * Simple in-memory cache with TTL (time-to-live).
- * Avoids reading the JSON file from disk on every request.
- */
+// In-memory cache with TTL to avoid reading JSON on every request
 class SimpleCache {
   constructor(ttlSeconds = 60) {
-    this.ttl = ttlSeconds * 1000; // convert to ms
+    this.ttl = ttlSeconds * 1000;
     this.cache = new Map();
   }
 
@@ -27,5 +24,4 @@ class SimpleCache {
   }
 }
 
-// Export a single shared cache instance (60 second TTL)
 module.exports = new SimpleCache(60);

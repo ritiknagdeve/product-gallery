@@ -2,7 +2,6 @@
   position: relative;
 }
 
-/* ─── Trigger button ───────────────────────────────────────────── */
 .category-filter-trigger {
   display: flex;
   align-items: center;
@@ -43,7 +42,6 @@
   transform: rotate(180deg);
 }
 
-/* ─── Dropdown ─────────────────────────────────────────────────── */
 .category-filter-dropdown {
   position: absolute;
   top: calc(100% + 4px);

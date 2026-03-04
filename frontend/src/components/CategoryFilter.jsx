@@ -7,7 +7,6 @@ export default function CategoryFilter() {
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef(null);
 
-  // Close on outside click
   useEffect(() => {
     const handler = (e) => {
       if (wrapperRef.current && !wrapperRef.current.contains(e.target)) {

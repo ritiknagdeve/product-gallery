@@ -1,6 +1,3 @@
-/* Override @fontsource/inter default font-display: swap → block
-   Since Inter is bundled locally, the browser should wait for it
-   rather than showing a different font first (no CLS) */
 @font-face {
   font-family: 'Inter';
   font-display: block;

@@ -1,15 +1,14 @@
 const API_BASE = import.meta.env.VITE_API_BASE_URL || "/api";
 
-/**
- * Fetch products with search, category, pagination params
- */
-export async function fetchProducts({ search, category, page, limit } = {}) {
+export async function fetchProducts({ search, category, page, limit, sort, order } = {}) {
   const params = new URLSearchParams();
 
   if (search) params.set("search", search);
   if (category) params.set("category", category);
   if (page) params.set("page", String(page));
   if (limit) params.set("limit", String(limit));
+  if (sort) params.set("sort", sort);
+  if (order) params.set("order", order);
 
   const res = await fetch(`${API_BASE}/products?${params.toString()}`);
 
@@ -20,9 +19,7 @@ export async function fetchProducts({ search, category, page, limit } = {}) {
   return res.json();
 }
 
-/**
- * Fetch all product titles for search suggestions (cached after first call)
- */
+// Cached after first call
 let suggestionsCache = null;
 
 export async function fetchSuggestions() {
