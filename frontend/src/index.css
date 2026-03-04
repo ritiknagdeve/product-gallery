@@ -83,13 +83,6 @@ body {
   gap: 12px;
 }
 
-.result-count {
-  font-size: 0.82rem;
-  color: #888;
-  font-weight: 500;
-  margin-bottom: 16px;
-}
-
 .app-footer {
   margin-top: 48px;
   padding: 20px 0;

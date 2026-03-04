@@ -6,19 +6,6 @@ import Pagination from "./components/Pagination";
 import { useProducts } from "./context/ProductContext";
 import "./App.css";
 
-function ResultCount() {
-  const { totalItems, loading, search, category } = useProducts();
-  if (loading) return null;
-  const hasFilter = search || category;
-  return (
-    <p className="result-count">
-      {hasFilter
-        ? `${totalItems} result${totalItems !== 1 ? "s" : ""} found`
-        : `${totalItems} products`}
-    </p>
-  );
-}
-
 function App() {
   const { setSearch, setCategory, setSort, setPage } = useProducts();
 
@@ -49,8 +36,6 @@ function App() {
           <SortDropdown />
         </div>
       </div>
-
-      <ResultCount />
 
       <ProductGrid />
       <Pagination />
