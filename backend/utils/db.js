@@ -8,8 +8,5 @@ function readProducts() {
   return JSON.parse(raw);
 }
 
-function writeProducts(products) {
-  fs.writeFileSync(DB_PATH, JSON.stringify(products, null, 2), "utf-8");
-}
 
-module.exports = { readProducts, writeProducts };
+module.exports = { readProducts };
