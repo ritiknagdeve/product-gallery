@@ -42,7 +42,6 @@ A full-stack product gallery app built with React and Node.js. Browse products w
 - **Search bar** — debounced input (400ms) with autocomplete dropdown showing matching product titles, keyboard navigation support (arrow keys, enter, escape)
 - **Category filter** — custom dropdown to filter by category, resets to page 1 on change
 - **Sort dropdown** — sort by Price (Low→High, High→Low) or Name (A–Z, Z–A), resets to page 1 on change
-- **Result count** — shows total product/result count between toolbar and grid
 - **Skeleton loader** — 8 shimmer cards displayed while data is loading
 - **Pagination** — page number buttons (shows up to 5 around current page) with Prev/Next
 - **Responsive** — `auto-fill` grid on desktop, 2-column on mobile; toolbar stacks vertically on small screens with filter dropdowns splitting 50-50
