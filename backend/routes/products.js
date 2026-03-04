@@ -46,8 +46,16 @@ router.get("/", (req, res) => {
     });
 
     const totalItems = products.length;
-    const pageNum = Math.max(parseInt(page, 10) || 1, 1);
-    const perPage = Math.min(Math.max(parseInt(limit, 10) || 10, 1), 50);
+
+    const parsedPage = Number.parseInt(page, 10);
+    const parsedLimit = Number.parseInt(limit, 10);
+
+    const safePage = Number.isNaN(parsedPage) ? 1 : parsedPage;
+    const safeLimit = Number.isNaN(parsedLimit) ? 10 : parsedLimit;
+
+    const pageNum = Math.max(safePage, 1);
+    const perPage = Math.min(Math.max(safeLimit, 1), 50);
+
     const totalPages = Math.ceil(totalItems / perPage);
     const startIndex = (pageNum - 1) * perPage;
 
